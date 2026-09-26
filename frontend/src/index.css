@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;700;900&display=swap');
+
+:root {
+  --bg: #0a0a0a;
+  --fg: #e8e8e8;
+  --muted: #666;
+  --border: #333;
+  --accent: #e8e8e8;
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --grid-gap: 1px;
+  --grid-color: var(--border);
+  --cell-pad: 2rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+a { cursor: none; }
+button { cursor: none; }
+
+::selection {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+/* ─── Grid System ─── */
+
+.grid-border {
+  border: var(--grid-gap) solid var(--grid-color);
+}
+
+.grid-border-b {
+  border-bottom: var(--grid-gap) solid var(--grid-color);
+}
+
+.grid-border-t {
+  border-top: var(--grid-gap) solid var(--grid-color);
+}
+
+.grid-border-r {
+  border-right: var(--grid-gap) solid var(--grid-color);
+}
+
+.grid-border-l {
+  border-left: var(--grid-gap) solid var(--grid-color);
+}
+
+.grid-row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  width: 100%;
+}
+
+.cell {
+  padding: var(--cell-pad);
+}
+
+/* ─── Typography ─── */
+
+.t-hero {
+  font-size: clamp(4rem, 12vw, 10rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.t-section {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.t-heading {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.t-body {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #bbb;
+}
+
+.t-mono {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.t-micro {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ─── Section ─── */
+
+.section {
+  width: 100%;
+  border-bottom: var(--grid-gap) solid var(--grid-color);
+}
+
+/* ─── Interactive ─── */
+
+.link-underline {
+  color: var(--fg);
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--fg);
+  transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ─── Scrollbar ─── */
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); }
+
+/* ─── Keyframes ─── */
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.5); }
+}

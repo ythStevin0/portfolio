@@ -134,6 +134,10 @@ button { cursor: none; }
   display: inline-block;
 }
 
+.projects-track {
+  height: calc(100dvh - 60px - 3.5rem);
+}
+
 .link-underline::after {
   content: '';
   position: absolute;
@@ -160,4 +164,100 @@ button { cursor: none; }
 @keyframes scrollPulse {
   0%, 100% { opacity: 0.3; transform: scaleY(1); }
   50% { opacity: 1; transform: scaleY(1.5); }
+}
+
+/* --- Media Queries (Mobile Responsiveness) --- */
+@media (max-width: 768px) {
+  :root {
+    --cell-pad: 1.5rem;
+  }
+  
+  .grid-row {
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  .grid-border-r, .grid-border-l {
+    border-right: none !important;
+    border-left: none !important;
+  }
+  
+  /* On mobile, columns stack vertically, so we add bottom borders to separate cells */
+  .cell {
+    border-bottom: var(--grid-gap) solid var(--grid-color);
+  }
+  
+  .cell:last-child {
+    border-bottom: none;
+  }
+
+  /* Override inline text alignments that break stacked layouts */
+  .cell[style*="text-align: right"], 
+  .cell[style*="textAlign: right"],
+  .cell[style*="text-align: center"],
+  .cell[style*="textAlign: center"] {
+    text-align: left !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+  }
+
+  /* Adjust typography for mobile */
+  .t-hero {
+    font-size: clamp(2.5rem, 12vw, 6rem);
+  }
+  
+  .t-heading {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+
+  /* Adjust Hero specific */
+  .hero-meta-item {
+    font-size: 0.65rem !important;
+  }
+  
+  .hero-typography-layer {
+    padding: 0 1rem !important;
+  }
+
+  .hero-scroll-cue .cell {
+    padding: 1rem 1.5rem !important;
+  }
+
+  /* Make project cards wider on mobile to use screen space */
+  .pcard {
+    flex: 0 0 100vw !important;
+  }
+  
+  /* Prevent bottom cut-off on mobile by reducing total track height */
+  .projects-track {
+    height: calc(100dvh - 150px) !important;
+  }
+
+  /* Keep top of image visible when cropped on tall narrow screens */
+  .pcard-img {
+    object-position: top center !important;
+  }
+  
+  /* Footer flex gap fix */
+  footer .cell[style*="display: flex"] {
+    flex-wrap: wrap;
+    gap: 1rem !important;
+  }
+}
+
+
+/* Utility Classes for Responsive Alignment */
+.align-right { text-align: right; justify-content: flex-end; }
+.pad-large { padding-top: 3rem; padding-bottom: 3rem; }
+.pad-right { padding-right: 2rem; }
+
+@media (max-width: 768px) {
+  .align-right { text-align: left !important; justify-content: flex-start !important; }
+  .pad-large { padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
+  .pad-right { padding-right: 1.5rem !important; }
+}
+
+@keyframes aboutMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }

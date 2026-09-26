@@ -90,6 +90,7 @@ export function Projects() {
         end: () => `+=${totalWidth}`,
         scrub: 0.8,
         pin: true,
+        snap: window.innerWidth <= 768 ? 1 / (cards.length - 1) : false,
         anticipatePin: 1,
         invalidateOnRefresh: true,
       }
@@ -124,12 +125,10 @@ export function Projects() {
             002 — Selected Work
           </span>
         </div>
-        <div className="cell" style={{
+        <div className="cell align-right pad-right" style={{
           gridColumn: 'span 4',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'flex-end',
-          paddingRight: '2rem',
           gap: '1rem',
         }}>
           <span className="t-mono" style={{ color: 'var(--muted)', fontSize: '0.7rem', letterSpacing: '0.1em' }}>
@@ -144,10 +143,10 @@ export function Projects() {
       {/* Horizontal track */}
       <div
         ref={trackRef}
+        className="projects-track"
         style={{
           display: 'flex',
           gap: '0',
-          height: 'calc(100vh - 60px - 3.5rem)',
           willChange: 'transform',
         }}
       >

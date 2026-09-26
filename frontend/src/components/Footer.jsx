@@ -10,7 +10,7 @@ export function Footer() {
           <a href="https://www.threads.net/@ythstevino" target="_blank" rel="noopener noreferrer" className="link-underline t-micro" style={{ color: 'var(--muted)' }}>Threads</a>
           <a href="https://www.instagram.com/ythstevino/" target="_blank" rel="noopener noreferrer" className="link-underline t-micro" style={{ color: 'var(--muted)' }}>Instagram</a>
         </div>
-        <div className="cell" style={{ gridColumn: 'span 4', textAlign: 'right' }}>
+        <div className="cell align-right" style={{ gridColumn: 'span 4' }}>
           <span className="t-micro">&copy; {new Date().getFullYear()} All Rights Reserved</span>
         </div>
       </div>

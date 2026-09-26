@@ -67,8 +67,8 @@ export function Skills() {
         {groups.map((group, i) => (
           <div
             key={group.label}
-            className={`cell anim-skill-col ${i < groups.length - 1 ? 'grid-border-r' : ''}`}
-            style={{ gridColumn: 'span 4', paddingTop: '3rem', paddingBottom: '3rem', willChange: 'opacity, transform' }}
+            className={`cell pad-large anim-skill-col ${i < groups.length - 1 ? 'grid-border-r' : ''}`}
+            style={{ gridColumn: 'span 4', willChange: 'opacity, transform' }}
           >
             <div className="t-micro" style={{ marginBottom: '2rem', paddingBottom: '1rem', borderBottom: '1px solid var(--grid-color)' }}>
               {group.label}

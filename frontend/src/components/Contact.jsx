@@ -14,6 +14,8 @@ export function Contact() {
     message: ''
   })
 
+  const [result, setResult] = useState("Send Message")
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -21,15 +23,39 @@ export function Contact() {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    setResult("Sending...")
     
-    // Format the WhatsApp message
-    const phoneNumber = '6285604867218'
-    const text = `Hello Stevino!%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A%0A*Message:*%0A${formData.message}`
+    const data = new FormData(e.target)
     
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${text}`
-    window.open(whatsappUrl, '_blank')
+    // GANTI INI DENGAN ACCESS KEY WEB3FORMS ANDA NANTI:
+    data.append("access_key", "YOUR_ACCESS_KEY_HERE")
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data
+      })
+      const dataRes = await response.json()
+      
+      if (dataRes.success) {
+        setResult("Sent Successfully!")
+        e.target.reset()
+        setFormData({ name: '', email: '', message: '' })
+      } else {
+        console.log("Error", dataRes)
+        setResult(dataRes.message)
+      }
+    } catch (error) {
+      console.log(error)
+      setResult("Error! Try again.")
+    }
+    
+    // Reset button text after 5 seconds
+    setTimeout(() => {
+      setResult("Send Message")
+    }, 5000)
   }
 
   useGSAP(() => {
@@ -191,8 +217,9 @@ export function Contact() {
               }}
               onMouseEnter={(e) => e.currentTarget.style.opacity = '0.7'}
               onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
+              disabled={result === "Sending..."}
             >
-              Send via WhatsApp
+              {result}
             </button>
           </form>
         </div>

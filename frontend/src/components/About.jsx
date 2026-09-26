@@ -111,12 +111,12 @@ export function About() {
             letterSpacing: '-0.03em',
             textTransform: 'uppercase',
           }}>
-            {['Membangun', 'pengalaman', 'digital', 'di', 'persimpangan', 'antara', 'kode', '&', 'karya', 'visual.'].map((word, i) => (
+            {['Full-Stack', 'Developer,', 'merancang', 'arsitektur', 'sistem', 'di', 'persimpangan', 'antara', 'logika', '&', 'karya', 'visual.'].map((word, i) => (
               <span key={i} style={{ display: 'inline-block', overflow: 'hidden', marginRight: '0.3em', verticalAlign: 'top' }}>
                 <span className="about-word" style={{
                   display: 'inline-block',
                   willChange: 'transform',
-                  color: ['&', 'kode', 'visual.'].includes(word) ? 'var(--fg)' : 'var(--muted)',
+                  color: ['Full-Stack', 'Developer,', '&', 'logika', 'visual.'].includes(word) ? 'var(--fg)' : 'var(--muted)',
                 }}>
                   {word}
                 </span>
@@ -137,6 +137,7 @@ export function About() {
           gap: '0',
           whiteSpace: 'nowrap',
           willChange: 'transform',
+          animation: 'aboutMarquee 15s linear infinite',
         }}>
           {[...Array(4)].map((_, i) => (
             <span key={i} style={{ display: 'flex', flexShrink: 0 }}>
@@ -186,16 +187,14 @@ export function About() {
             lineHeight: 1.8,
             willChange: 'opacity, transform',
           }}>
-            Saya seorang Software Developer yang berbasis di Indonesia. Pendekatan saya berfokus penuh pada penguasaan <strong>fundamental dan <i>knowledge</i></strong>—memahami secara mendalam konsep perancangan REST API, protokol HTTP, arsitektur keamanan web dengan Cloudflare, struktur basis data, hingga siklus asinkronus.
-            Saya percaya teknologi terbaik tidak lahir dari sekadar menghafal <i>framework</i>, melainkan dari pemahaman tentang bagaimana sebuah sistem bekerja secara aman dan handal di bawah permukaan.
+            Saya adalah seorang Full-Stack Developer yang memadukan <strong>logika backend tingkat lanjut</strong> dengan <strong>keindahan karya visual</strong> di sisi frontend. Pendekatan saya bukan sekadar merakit antarmuka, melainkan merancang arsitektur aplikasi yang kokoh secara menyeluruh—mulai dari optimalisasi struktur database, perancangan REST API, hingga implementasi keamanan infrastruktur.
           </p>
           <p className="t-body about-body-p" style={{
             maxWidth: '560px',
             lineHeight: 1.8,
             willChange: 'opacity, transform',
           }}>
-            Dengan pondasi tersebut, saya membangun ekosistem Full-Stack modern (React & Node.js) serta mengintegrasikan Kecerdasan Buatan (AI) menggunakan Python. 
-            Dari sistem manajemen keuangan hingga algoritma rekomendasi, semuanya dibangun dengan struktur logika yang kokoh.
+            Lebih dari sekadar pemrograman konvensional, saya sangat tertarik pada penciptaan ekosistem cerdas. Saat ini saya mengintegrasikan alur kerja otomatisasi (*Automation*) menggunakan <strong>n8n</strong> dan mengeksplorasi potensi desentralisasi <strong>Web3</strong>.
           </p>
 
           {/* Horizontal rule animated */}
@@ -211,11 +210,11 @@ export function About() {
           <p className="t-body about-body-p" style={{
             maxWidth: '560px',
             lineHeight: 1.8,
-            color: '#e0e0e0', // Lebih terang dari muted
-            fontSize: '0.95rem', // Sedikit diperbesar
+            color: '#e0e0e0',
+            fontSize: '0.95rem',
             willChange: 'opacity, transform',
           }}>
-            Saat ini saya sedang fokus memperluas keahlian ke teknologi <span style={{ color: '#fff', fontWeight: 'bold', textShadow: '0 0 8px rgba(255,255,255,0.6)' }}>Otomasi</span> dan <span style={{ color: '#fff', fontWeight: 'bold', textShadow: '0 0 8px rgba(255,255,255,0.6)' }}>Web3</span>, bereksplorasi untuk menciptakan solusi digital generasi baru yang efisien dan terdesentralisasi.
+            Saya memastikan setiap produk digital yang saya bangun tidak hanya memanjakan mata, tapi juga <span style={{ color: '#fff', fontWeight: 'bold', textShadow: '0 0 8px rgba(255,255,255,0.6)' }}>Efisien</span>, otomatis, dan siap untuk <span style={{ color: '#fff', fontWeight: 'bold', textShadow: '0 0 8px rgba(255,255,255,0.6)' }}>Masa Depan</span>.
           </p>
         </div>
 
@@ -232,7 +231,7 @@ export function About() {
           {[
             { label: 'Repositori GitHub', value: '30+', unit: '' },
             { label: 'Proyek Utama', value: '10+', unit: '' },
-            { label: 'Fokus Teknologi', value: 'Full', unit: 'Stack' },
+            { label: 'Klien', value: '6+', unit: '' },
           ].map((stat, i) => (
             <div
               key={i}

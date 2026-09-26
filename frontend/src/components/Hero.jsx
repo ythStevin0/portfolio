@@ -88,7 +88,7 @@ export function Hero() {
 
   return (
     <section ref={containerRef} id="hero" className="section" style={{
-      height: '100vh',
+      height: '100dvh',
       display: 'flex',
       flexDirection: 'column',
       position: 'relative',
@@ -170,7 +170,7 @@ export function Hero() {
           
           {/* Row 1: STEVINO */}
           <div className="hero-name-row hero-row-1" style={{
-            fontSize: 'clamp(3.5rem, 10vw, 9rem)',
+            fontSize: 'clamp(1.5rem, 9vw, 9rem)',
             fontWeight: 900,
             lineHeight: 0.85,
             letterSpacing: '-0.04em',
@@ -186,7 +186,7 @@ export function Hero() {
 
           {/* Row 2: ADI NUGROHO */}
           <div className="hero-name-row hero-row-2" style={{
-            fontSize: 'clamp(3.5rem, 10vw, 9rem)',
+            fontSize: 'clamp(1.5rem, 9vw, 9rem)',
             fontWeight: 900,
             lineHeight: 0.85,
             letterSpacing: '-0.04em',
@@ -252,23 +252,27 @@ export function Hero() {
       </div>
 
       {/* === BOTTOM BAR === */}
-      <div className="grid-row grid-border-t hero-scroll-cue" style={{ flexShrink: 0 }}>
-        <div className="cell grid-border-r" style={{ gridColumn: 'span 4', padding: '1rem 2rem' }}>
-          <span className="t-micro hero-meta-item">Open for opportunities</span>
+      <div className="grid-border-t hero-scroll-cue" style={{ 
+        flexShrink: 0,
+        display: 'flex',
+        width: '100%',
+      }}>
+        <div style={{ flex: 1, padding: '1rem 0.5rem', borderRight: '1px solid var(--grid-color)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <span className="t-micro hero-meta-item" style={{ textAlign: 'center' }}>Open for opportunities</span>
         </div>
-        <div className="cell grid-border-r" style={{ gridColumn: 'span 4', padding: '1rem 2rem', textAlign: 'center' }}>
+        <div style={{ flex: 1, padding: '1rem 0.5rem', borderRight: '1px solid var(--grid-color)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <span className="t-micro hero-meta-item" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
             <span style={{
               display: 'inline-block',
               width: '1px',
-              height: '20px',
+              height: '15px',
               background: 'var(--muted)',
               animation: 'scrollPulse 1.5s ease-in-out infinite',
             }} />
             Scroll
           </span>
         </div>
-        <div className="cell" style={{ gridColumn: 'span 4', padding: '1rem 2rem', textAlign: 'right' }}>
+        <div style={{ flex: 1, padding: '1rem 0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <span className="t-micro hero-meta-item">©2024</span>
         </div>
       </div>
